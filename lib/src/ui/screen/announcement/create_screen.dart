@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:revendinea/src/store/announcement/create_store.dart';
+import 'package:revendinea/src/ui/widgets/announcement/category_field.dart';
 import 'package:revendinea/src/ui/widgets/announcement/images_field.dart';
 import 'package:revendinea/src/ui/widgets/drawer/custom_drawer.dart';
 
@@ -62,6 +63,7 @@ class CreateScreen extends StatelessWidget {
                 RealInputFormatter(centavos: true)
               ],
             ),
+            CategoryField(_createStore),
           ],
         ),
       ),

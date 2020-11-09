@@ -16,9 +16,38 @@ mixin _$CreateStore on _CreateStore, Store {
           Computed<int>(() => super.maxImg, name: '_CreateStore.maxImg'))
       .value;
 
+  final _$categoryAtom = Atom(name: '_CreateStore.category');
+
+  @override
+  Category get category {
+    _$categoryAtom.reportRead();
+    return super.category;
+  }
+
+  @override
+  set category(Category value) {
+    _$categoryAtom.reportWrite(value, super.category, () {
+      super.category = value;
+    });
+  }
+
+  final _$_CreateStoreActionController = ActionController(name: '_CreateStore');
+
+  @override
+  dynamic setCategory(Category newCategory) {
+    final _$actionInfo = _$_CreateStoreActionController.startAction(
+        name: '_CreateStore.setCategory');
+    try {
+      return super.setCategory(newCategory);
+    } finally {
+      _$_CreateStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
+category: ${category},
 maxImg: ${maxImg}
     ''';
   }
