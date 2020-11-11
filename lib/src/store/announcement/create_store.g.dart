@@ -31,7 +31,33 @@ mixin _$CreateStore on _CreateStore, Store {
     });
   }
 
+  final _$hidePhoneAtom = Atom(name: '_CreateStore.hidePhone');
+
+  @override
+  bool get hidePhone {
+    _$hidePhoneAtom.reportRead();
+    return super.hidePhone;
+  }
+
+  @override
+  set hidePhone(bool value) {
+    _$hidePhoneAtom.reportWrite(value, super.hidePhone, () {
+      super.hidePhone = value;
+    });
+  }
+
   final _$_CreateStoreActionController = ActionController(name: '_CreateStore');
+
+  @override
+  dynamic setHidePhone(bool newValue) {
+    final _$actionInfo = _$_CreateStoreActionController.startAction(
+        name: '_CreateStore.setHidePhone');
+    try {
+      return super.setHidePhone(newValue);
+    } finally {
+      _$_CreateStoreActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   dynamic setCategory(Category newCategory) {
@@ -48,6 +74,7 @@ mixin _$CreateStore on _CreateStore, Store {
   String toString() {
     return '''
 category: ${category},
+hidePhone: ${hidePhone},
 maxImg: ${maxImg}
     ''';
   }

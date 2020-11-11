@@ -18,7 +18,7 @@ class ErrorBox extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-        tileColor: Colors.red,
+        tileColor: Colors.red.withAlpha(100),
         title: Text(
           "$message",
           style: TextStyle(color: Colors.white),
@@ -27,7 +27,10 @@ class ErrorBox extends StatelessWidget {
           "Corrija o problema e tente novamente",
           style: TextStyle(color: Colors.white),
         ),
-        trailing: Icon(Icons.error, color: Colors.white,),
+        trailing: Icon(
+          Icons.error,
+          color: Colors.white,
+        ),
       ),
     );
   }

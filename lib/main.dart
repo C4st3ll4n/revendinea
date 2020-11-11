@@ -21,8 +21,6 @@ Future initializeParser() async {
       clientKey: "ilNm8SejdAcIX4MH7MoFG5KZ1wg57HnB5eiqiTDy",
       autoSendSessionId: true,
       debug: true);
-
-  //CategoryRepository().getList();
 }
 
 void setupLocator() {

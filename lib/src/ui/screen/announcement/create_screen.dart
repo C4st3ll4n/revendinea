@@ -6,6 +6,8 @@ import 'package:revendinea/src/store/announcement/create_store.dart';
 import 'package:revendinea/src/ui/widgets/announcement/category_field.dart';
 import 'package:revendinea/src/ui/widgets/announcement/images_field.dart';
 import 'package:revendinea/src/ui/widgets/drawer/custom_drawer.dart';
+import 'package:revendinea/src/ui/widgets/input/cep_field.dart';
+import 'package:revendinea/src/ui/widgets/input/phone_field.dart';
 
 class CreateScreen extends StatelessWidget {
   CreateStore _createStore = CreateStore();
@@ -30,6 +32,7 @@ class CreateScreen extends StatelessWidget {
         elevation: 8,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
             ImagesField(controller: _createStore),
@@ -64,6 +67,21 @@ class CreateScreen extends StatelessWidget {
               ],
             ),
             CategoryField(_createStore),
+            CepField(),
+            PhoneField(_createStore),
+            SizedBox(
+              height: 60,
+              child: RaisedButton(
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                onPressed: null,
+                child: Text(
+                  "Enviar",
+                  style: TextStyle(fontSize: 18),
+                ),
+                color: Colors.orange,
+                disabledColor: Colors.orange.withAlpha(120),
+              ),
+            )
           ],
         ),
       ),
