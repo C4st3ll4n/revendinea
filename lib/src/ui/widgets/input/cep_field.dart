@@ -2,10 +2,14 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:revendinea/src/store/announcement/create_store.dart';
 import 'package:revendinea/src/store/cep_store.dart';
 
 class CepField extends StatelessWidget {
-  final CepStore _cepStore = CepStore();
+  final CepStore _cepStore;
+  final CreateStore createStore;
+
+  CepField(this.createStore) : _cepStore = createStore.cepStore;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,7 @@ class CepField extends StatelessWidget {
           onChanged: _cepStore.setCep,
           decoration: InputDecoration(
               labelText: "CEP *",
+              errorText: createStore.addressError,
               labelStyle: TextStyle(
                   fontWeight: FontWeight.w800,
                   color: Colors.grey,
